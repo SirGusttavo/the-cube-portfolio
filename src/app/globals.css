@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* Tokens de design. Espelhados em src/lib/palette.ts para uso no WebGL. */
+@theme {
+  --color-bg: #050505;
+  --color-bg-secondary: #0b0d10;
+  --color-surface: #171a20;
+  --color-surface-raised: #22262d;
+  --color-line: #353b45;
+  --color-ink: #f5f5f5;
+  --color-ink-secondary: #a5aab3;
+  --color-ink-muted: #686f7a;
+  --color-accent: #ff7900;
+  --color-accent-light: #ff9d42;
+  --color-glow: #ffc078;
+  --color-success: #28d17c;
+
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", monospace;
+
+  --animate-nudge: nudge 2.4s ease-in-out infinite;
+  @keyframes nudge {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(3px);
+    }
+  }
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Foco visível e consistente em todos os controles. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

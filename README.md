@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# THE CUBE
 
-## Getting Started
+Portfólio interativo 3D de Gustavo Morais. Um cubo modular (4×4×4) é o sistema de navegação.
+**BUILD. DEBUG. IMPROVE.**
 
-First, run the development server:
+## Rodando
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # build de produção
+npm run typecheck  # tsc --noEmit
+npm run lint
+npm run format
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Requer Node 20+ (desenvolvido em Node 22).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estado atual
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [x] Fase 1 — Arquitetura, layout inicial, dados reais
+- [ ] Fase 2 — Cubo 3D (hoje há um `CubeScene` placeholder)
+- [ ] Fase 3 — Interação · Fase 4 — Painéis · Fase 5 — GitHub API
+- [ ] Fase 6 — Refinamento visual · Fase 7 — Testes
 
-## Learn More
+## Estrutura
 
-To learn more about Next.js, take a look at the following resources:
+- `src/data/` — conteúdo (perfil, projetos, experiência, tecnologias, faces). Fonte única.
+- `src/types/` — tipos do conteúdo.
+- `src/components/cube/` — tudo que é 3D. Não importa nada de `panels/`.
+- `src/components/interface/` — header, footer, instruções.
+- `src/lib/palette.ts` — paleta para WebGL (espelha os tokens de `globals.css`).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Decisões técnicas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Fontes locais** via `@fontsource-variable/*` (Inter, Space Grotesk, JetBrains Mono): sem requisição ao Google, sem dependência de rede no build.
+- **Cena 3D com `dynamic(..., { ssr: false })`** dentro de um Client Component, em chunk separado.
+- **Ícones de marca**: `lucide-react` 1.x removeu marcas; GitHub vem de `simple-icons`. LinkedIn e Power BI não existem em `simple-icons` (pendência para a Fase 4).
+- **`cacheComponents` desativado**: o scaffold o ligava, mas o site é estático e não precisa. Reavaliar na Fase 5 (GitHub API).
+- **Dependências adiadas** até haver uso real: Vitest, Playwright, Framer Motion, postprocessing.
+- **Somente tema escuro** por ora.
+- `npm audit` acusa `minimatch` (moderada) no toolchain de lint; é só dev, e o `--force` faria downgrade do `eslint-config-next`.
 
-## Deploy on Vercel
+## Regras de conteúdo
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Nada de métricas, links ou screenshots inventados. Campos sem informação confirmada ficam vazios
+ou com `TODO(Gustavo)` nos arquivos de `src/data/`.

@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, type RefObject } from "react";
 import { useFrame } from "@react-three/fiber";
 import { BoxGeometry, EdgesGeometry, LineBasicMaterial } from "three";
 import type { Group } from "three";
 import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
 import { palette } from "@/lib/palette";
+import type { FaceId } from "@/types/content";
 import { buildCubeBlocks } from "@/lib/cube/layout";
 import {
-  AUTO_ROTATION_SPEED,
   BLOCK_RADIUS,
   BLOCK_SIZE,
   CUBE_Y,
@@ -19,10 +19,15 @@ import {
 } from "@/lib/cube/constants";
 import { CubeBlock } from "./CubeBlock";
 
-export function CubeModel({ reducedMotion }: { reducedMotion: boolean }) {
-  const group = useRef<Group>(null);
-  const yaw = useRef(INITIAL_YAW);
+interface CubeModelProps {
+  /** Grupo cuja rotação é controlada pelo CubeController. */
+  groupRef: RefObject<Group | null>;
+  reducedMotion: boolean;
+  onSelectFace?: (face: FaceId) => void;
+}
 
+/** Geometria e flutuação. A rotação (automática e manual) é do CubeController. */
+export function CubeModel({ groupRef, reducedMotion, onSelectFace }: CubeModelProps) {
   const blocks = useMemo(() => buildCubeBlocks(), []);
   const geometry = useMemo(
     () => new RoundedBoxGeometry(BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE, 3, BLOCK_RADIUS),
@@ -49,23 +54,18 @@ export function CubeModel({ reducedMotion }: { reducedMotion: boolean }) {
     [geometry, edges, edgeMaterial],
   );
 
-  useFrame((state, delta) => {
-    const g = group.current;
+  useFrame((state) => {
+    const g = groupRef.current;
     if (!g) return;
-    // Limita o delta: ao voltar de uma aba em segundo plano ele pode ser enorme.
-    const dt = Math.min(delta, 0.1);
-    if (!reducedMotion) yaw.current += dt * AUTO_ROTATION_SPEED;
-    const t = state.clock.elapsedTime;
     const float = reducedMotion
       ? 0
-      : Math.sin((t * Math.PI * 2) / FLOAT_PERIOD) * FLOAT_AMPLITUDE;
-    const sway = reducedMotion ? 0 : Math.sin(t * 0.7) * 0.012;
-    g.rotation.set(TILT, yaw.current, sway);
+      : Math.sin((state.clock.elapsedTime * Math.PI * 2) / FLOAT_PERIOD) *
+        FLOAT_AMPLITUDE;
     g.position.y = CUBE_Y + float;
   });
 
   return (
-    <group ref={group} rotation={[TILT, INITIAL_YAW, 0]} position={[0, CUBE_Y, 0]}>
+    <group ref={groupRef} rotation={[TILT, INITIAL_YAW, 0]} position={[0, CUBE_Y, 0]}>
       {blocks.map((block) => (
         <CubeBlock
           key={block.id}
@@ -73,6 +73,7 @@ export function CubeModel({ reducedMotion }: { reducedMotion: boolean }) {
           geometry={geometry}
           edges={edges}
           edgeMaterial={edgeMaterial}
+          onSelectFace={onSelectFace}
         />
       ))}
     </group>

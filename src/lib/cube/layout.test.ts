@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { faces } from "@/data/faces";
 import { BLOCK_SIZE, CUBE_EXTENT, GAP, PITCH } from "./constants";
-import { buildCubeBlocks } from "./layout";
+import { buildCubeBlocks, faceIdFromPosition, facePositionFromNormal } from "./layout";
 import { cameraDistance } from "./camera";
 
 const blocks = buildCubeBlocks();
@@ -67,5 +67,21 @@ describe("cameraDistance", () => {
     const halfTan = Math.tan((35 * Math.PI) / 360);
     expect(cameraDistance(1.6, 35)).toBeCloseTo(9.8 / (2 * halfTan), 6);
     expect(cameraDistance(0.46, 35)).toBeCloseTo(7.2 / (0.46 * 2 * halfTan), 6);
+  });
+});
+
+describe("facePositionFromNormal", () => {
+  it("usa o eixo dominante", () => {
+    expect(facePositionFromNormal(0, 0, 1)).toBe("front");
+    expect(facePositionFromNormal(0.1, 0.2, -0.9)).toBe("back");
+    expect(facePositionFromNormal(-0.8, 0.3, 0.2)).toBe("left");
+    expect(facePositionFromNormal(0.9, -0.1, 0.1)).toBe("right");
+    expect(facePositionFromNormal(0.2, 0.95, 0.1)).toBe("top");
+    expect(facePositionFromNormal(0, -1, 0)).toBe("bottom");
+  });
+
+  it("cada posição corresponde a uma face funcional", () => {
+    expect(faceIdFromPosition("front")).toBe("projects");
+    expect(faceIdFromPosition("bottom")).toBe("playground");
   });
 });

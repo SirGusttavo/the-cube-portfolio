@@ -11,7 +11,7 @@ export default function Home() {
         {profile.name} — {profile.role}
       </h1>
       <BackgroundGrid />
-      <CubeSceneLoader />
+      <CubeSceneLoader ariaLabel="Cubo 3D interativo. Arraste ou use as setas do teclado para girar." />
       <Header />
       <Footer />
     </main>

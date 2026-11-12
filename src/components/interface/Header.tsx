@@ -3,7 +3,7 @@ import { profile } from "@/data/profile";
 
 export function Header() {
   return (
-    <header className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-5 py-5 md:px-10 md:py-8">
+    <header className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-center justify-between px-5 py-5 md:px-10 md:py-8">
       <div className="flex items-center gap-4">
         <Logo className="size-9 text-accent" />
         <div className="h-8 w-px bg-line" aria-hidden />

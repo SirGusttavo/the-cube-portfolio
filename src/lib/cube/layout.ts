@@ -124,3 +124,17 @@ export function buildCubeBlocks(): CubeBlockData[] {
     return { ...b, depthOffset, position };
   });
 }
+
+/** Face do cubo a partir de uma normal em espaço local (eixo dominante). */
+export function facePositionFromNormal(x: number, y: number, z: number): FacePosition {
+  const ax = Math.abs(x);
+  const ay = Math.abs(y);
+  const az = Math.abs(z);
+  if (ax >= ay && ax >= az) return x >= 0 ? "right" : "left";
+  if (ay >= az) return y >= 0 ? "top" : "bottom";
+  return z >= 0 ? "front" : "back";
+}
+
+export function faceIdFromPosition(position: FacePosition): FaceId {
+  return faces.find((f) => f.position === position)!.id;
+}

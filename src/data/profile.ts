@@ -1,14 +1,11 @@
 import type { Profile } from "@/types/content";
+import data from "./profile.json";
 
-/** Fonte única das informações pessoais. Não espalhar esses valores pelo código. */
+/**
+ * Fonte única das informações pessoais. O mesmo `profile.json` é lido pelo
+ * gerador de PDF em Python (scripts/build_resume.py).
+ */
 export const profile: Profile = {
-  name: "Gustavo Morais",
-  role: "Developer",
+  ...data,
   tagline: "Build. Debug. Improve.",
-  positioning:
-    "Desenvolvedor de software em formação, com foco em back-end, automação de processos, integração de sistemas e tratamento de dados.",
-  github: "https://github.com/SirGusttavo",
-  linkedin: "https://www.linkedin.com/in/gustavo-morais-372620321",
-  // TODO(Gustavo): confirme que este é o e-mail que você quer publicar.
-  email: "gustavo28.morais@gmail.com",
 };

@@ -1,0 +1,249 @@
+{
+  "meta": {
+    "title": "Gustavo Morais — Developer",
+    "description": "Software developer in training, focused on back-end development, process automation, systems integration and data processing."
+  },
+  "header": {
+    "role": "Developer"
+  },
+  "cube": {
+    "aria": "Interactive 3D cube. Drag or use the arrow keys to rotate. Click a face to open an area.",
+    "drag": "Drag to explore",
+    "swipe": "Swipe to explore"
+  },
+  "faces": {
+    "projects": {
+      "label": "PROJECTS",
+      "hint": "Explore my work"
+    },
+    "tech": {
+      "label": "TECH STACK",
+      "hint": "Tools I use"
+    },
+    "experience": {
+      "label": "EXPERIENCE",
+      "hint": "Professional path"
+    },
+    "about": {
+      "label": "ABOUT",
+      "hint": "Who I am"
+    },
+    "playground": {
+      "label": "PLAYGROUND",
+      "hint": "Interactive terminal"
+    },
+    "contact": {
+      "label": "CONTACT",
+      "hint": "Let's talk"
+    }
+  },
+  "apps": {
+    "projects": "Projects",
+    "tech": "Technologies",
+    "experience": "Experience",
+    "about": "About",
+    "terminal": "Terminal",
+    "contact": "Contact"
+  },
+  "window": {
+    "minimize": "Minimize",
+    "restore": "Restore",
+    "close": "Close"
+  },
+  "taskbar": {
+    "label": "Taskbar",
+    "start": "Open command palette",
+    "language": "Language",
+    "open": "Open {app}",
+    "openWindow": "{app} (window open)"
+  },
+  "common": {
+    "loading": "Loading…",
+    "retry": "Try again",
+    "viewRepo": "View on GitHub",
+    "newTab": "opens in a new tab",
+    "copy": "Copy",
+    "copied": "Copied",
+    "download": "Download",
+    "back": "Back"
+  },
+  "about": {
+    "title": "About",
+    "p1": "Software developer in training, focused on back-end development, process automation, systems integration and data processing.",
+    "p2": "Industrial Automation technician (ETEC Presidente Vargas) and Data Science student at Universidade Cruzeiro do Sul, since 2026.",
+    "p3": "I keep growing through projects, study and new challenges in IT."
+  },
+  "experience": {
+    "title": "Experience",
+    "current": {
+      "role": "Apprentice (Jovem Aprendiz program) — Process Control Apprentice",
+      "area": "Production Control / Industrial Process Automation",
+      "period": "2025–2026"
+    },
+    "deliverables": "Deliverables",
+    "deliverableFlow": "FLOW: six Python automations, described under Projects.",
+    "education": "Education",
+    "etec": "Industrial Automation Technician (vocational program)",
+    "cruzeiro": "Technologist degree in Data Science",
+    "cruzeiroNote": "Started in 2026",
+    "resume": "Resume",
+    "resumeHint": "PDF for reading, printing and sharing.",
+    "resumePt": "Resume (PDF) — Portuguese",
+    "resumeEn": "Resume (PDF) — English"
+  },
+  "projects": {
+    "title": "Projects",
+    "tabsLabel": "Projects and repositories",
+    "kinds": {
+      "professional": "Professional",
+      "learning": "Learning",
+      "personal": "Personal",
+      "fork": "Third-party fork"
+    },
+    "labels": {
+      "overview": "Overview",
+      "technologies": "Technologies",
+      "modules": "Modules",
+      "application": "Application",
+      "result": "Observed result (approx.)",
+      "notes": "Notes",
+      "repo": "Repository",
+      "original": "Original project",
+      "parallel": "Parallel processing"
+    },
+    "flow": {
+      "tagline": "Python Automation Process",
+      "summary": "Six Python automations built during my time at Suzano (2025–2026), focused on cutting manual work, integrating systems and making operational data easier to analyze.",
+      "notice": "Code adapted, without the original corporate access and data. Not a standalone demo of the SAP/SSRS environment. Requires Windows and Python 3.",
+      "resultsNote": "Approximate results of the original processes, as stated in the repository README.",
+      "modules": {
+        "pgr": {
+          "application": "Entry and update of industrial indicators on the web.",
+          "result": "~2 min 30 s → ~15 s"
+        },
+        "sap": {
+          "application": "Extraction and consolidation of SAP reports, with SAP GUI integration and data processing.",
+          "result": "~1 h 30 → under 15 min"
+        },
+        "lot": {
+          "application": "Lot auditing and traceability, combining information from SSRS and SAP reports.",
+          "result": "up to ~1 h → under 10 min"
+        },
+        "prod": {
+          "application": "Update and processing of production controls and reports in Excel.",
+          "result": "~10 min → ~2 min (about 80% less)"
+        },
+        "visconf": {
+          "application": "Supply planning and bills of materials (BOM), focused on visibility and management.",
+          "result": "~40 min → ~2 min",
+          "note1": "Built in collaboration with João.",
+          "note2": "5th place at Summit PRO+, Suzano Mogi unit."
+        },
+        "techlyst": {
+          "application": "Extraction and processing of technical material structures (BOM), with SAP GUI and Excel integration.",
+          "result": "over 180 materials per hour",
+          "note1": "Used across different industrial units."
+        }
+      }
+    },
+    "pythonCourse": {
+      "tagline": "Python study and progress",
+      "summary": "Exercises, examples and challenges from an introductory Python course. Learning material, not a finished professional product."
+    },
+    "pip": {
+      "tagline": "Browser extension (Chromium)",
+      "summary": "Extension that places any page element in a native Picture-in-Picture window.",
+      "credit": "This repository is a fork of boryssey's project. Original authorship is theirs; individual contribution to this fork has not been confirmed yet."
+    }
+  },
+  "tech": {
+    "title": "Technologies",
+    "intro": "Grouped by category. No skill bars: context of use says more than a number.",
+    "categories": {
+      "development": "Development",
+      "automation": "Automation",
+      "data": "Data",
+      "tools": "Tools"
+    },
+    "usedIn": "Used in",
+    "professionalBadge": "Professional use",
+    "legend": "Marked “Professional use”: technologies documented in the FLOW project.",
+    "selectHint": "Select a technology to see its context."
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "The most direct way is email or LinkedIn.",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "copyEmail": "Copy email"
+  },
+  "github": {
+    "title": "Public GitHub repositories",
+    "loading": "Fetching repositories…",
+    "none": "No public repositories found.",
+    "errors": {
+      "rate_limited": "GitHub's request limit was reached.",
+      "network": "Could not connect to GitHub.",
+      "upstream": "GitHub returned an error."
+    },
+    "fallback": "Showing the local project list, without live data.",
+    "stale": "Showing data saved on {when}.",
+    "updated": "Updated {date}",
+    "language": "Language",
+    "fork": "fork",
+    "updatedLabel": "Last updated"
+  },
+  "terminal": {
+    "title": "Terminal",
+    "welcome": "THE CUBE · portfolio terminal. Type “help” to list commands.",
+    "hint": "Tab completes · ↑↓ history · Ctrl+L clears",
+    "inputLabel": "Terminal command input",
+    "unknown": "command not recognized: {cmd}. Type “help”.",
+    "noSuchApp": "unknown area: {app}",
+    "usageOpen": "usage: open <projects|tech|experience|about|terminal|contact>",
+    "opening": "opening {app}…",
+    "usageLang": "usage: lang <pt-BR|en>",
+    "langChanged": "language changed to {language}",
+    "helpHeader": "Available commands:",
+    "helpShortcuts": "Shortcuts: Ctrl/⌘+K command palette · Ctrl/Alt+1–4 projects, technologies, experience, terminal · Esc closes the active window",
+    "cmd": {
+      "help": "list commands",
+      "about": "who I am",
+      "projects": "list projects",
+      "skills": "technologies by category",
+      "experience": "professional experience",
+      "education": "education",
+      "contact": "ways to reach me",
+      "github": "profile and FLOW repository",
+      "clear": "clear the screen",
+      "date": "current date and time",
+      "whoami": "identify this portfolio",
+      "open": "open an area (e.g. open projects)",
+      "lang": "switch language (e.g. lang en)"
+    },
+    "noWindowed": "(none)"
+  },
+  "palette": {
+    "label": "Command palette",
+    "placeholder": "Type a command or search an area…",
+    "empty": "Nothing found.",
+    "hints": "↑↓ navigate · Enter select · Esc close",
+    "groups": {
+      "apps": "Areas",
+      "actions": "Actions",
+      "language": "Language"
+    },
+    "openApp": "Open {app}",
+    "resume": "Download resume (PDF)",
+    "resumeKeywords": "cv curriculo resume pdf download",
+    "repo": "Open the FLOW repository on GitHub",
+    "profile": "Open GitHub profile",
+    "switchTo": "Language: {language}",
+    "languageKeywords": "idioma language lingua"
+  },
+  "language": {
+    "pt-BR": "Português (Brasil)",
+    "en": "English"
+  }
+}

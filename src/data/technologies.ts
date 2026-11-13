@@ -1,29 +1,34 @@
 import type { TechCategoryId, Technology } from "@/types/content";
 
-export const techCategories: Record<TechCategoryId, string> = {
-  development: "Desenvolvimento",
-  automation: "Automação e integração",
-  data: "Dados",
-  tools: "Ferramentas",
-};
+export const techCategoryOrder: readonly TechCategoryId[] = [
+  "development",
+  "automation",
+  "data",
+  "tools",
+];
 
 /**
- * `provenance` fica indefinido de propósito: a spec exige diferenciar uso
- * profissional, pessoal e em estudo, mas não informa qual é qual.
+ * `usedIn` só aparece onde há evidência pública (README do FLOW). As demais
+ * ficam sem classificação até Gustavo informar: pessoal, estudo ou em andamento.
  */
 export const technologies: readonly Technology[] = [
-  { id: "python", name: "Python", category: "development" },
+  { id: "python", name: "Python", category: "development", usedIn: ["flow"] },
   { id: "java", name: "Java", category: "development" },
   { id: "cpp", name: "C++", category: "development" },
   { id: "javascript", name: "JavaScript", category: "development" },
-  { id: "selenium", name: "Selenium", category: "automation" },
-  { id: "sap-gui-scripting", name: "SAP GUI Scripting", category: "automation" },
-  { id: "pywin32", name: "pywin32", category: "automation" },
-  { id: "tkinter", name: "Tkinter", category: "automation" },
+  { id: "selenium", name: "Selenium", category: "automation", usedIn: ["flow"] },
+  {
+    id: "sap-gui-scripting",
+    name: "SAP GUI Scripting",
+    category: "automation",
+    usedIn: ["flow"],
+  },
+  { id: "pywin32", name: "pywin32", category: "automation", usedIn: ["flow"] },
+  { id: "tkinter", name: "Tkinter", category: "automation", usedIn: ["flow"] },
   { id: "powershell", name: "PowerShell", category: "automation" },
-  { id: "pandas", name: "pandas", category: "data" },
-  { id: "excel", name: "Excel", category: "data" },
-  { id: "openpyxl", name: "openpyxl", category: "data" },
+  { id: "pandas", name: "pandas", category: "data", usedIn: ["flow"] },
+  { id: "excel", name: "Excel", category: "data", usedIn: ["flow"] },
+  { id: "openpyxl", name: "openpyxl", category: "data", usedIn: ["flow"] },
   { id: "sql", name: "SQL", category: "data" },
   { id: "mysql", name: "MySQL", category: "data" },
   { id: "power-bi", name: "Power BI", category: "data" },

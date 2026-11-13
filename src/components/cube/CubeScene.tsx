@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import type { Group } from "three";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import type { FaceId } from "@/types/content";
 import { CameraRig } from "./CameraRig";
@@ -18,6 +19,8 @@ interface CubeSceneProps {
 
 export function CubeScene({ ariaLabel, onSelectFace }: CubeSceneProps) {
   const reducedMotion = usePrefersReducedMotion();
+  // Telas de toque (DPR 2–3): limitar a resolução reduz bastante os pixels sem perda visível.
+  const touch = useMediaQuery("(pointer: coarse)");
   const root = useRef<HTMLDivElement>(null);
   const cube = useRef<Group>(null);
 
@@ -33,7 +36,7 @@ export function CubeScene({ ariaLabel, onSelectFace }: CubeSceneProps) {
     >
       <Canvas
         aria-hidden
-        dpr={[1, 2]}
+        dpr={[1, touch ? 1.5 : 2]}
         camera={{ fov: 35, near: 0.1, far: 100, position: [0, 0, 16] }}
         gl={{ antialias: true, powerPreference: "high-performance" }}
       >

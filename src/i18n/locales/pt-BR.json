@@ -1,0 +1,249 @@
+{
+  "meta": {
+    "title": "Gustavo Morais — Desenvolvedor",
+    "description": "Desenvolvedor de software em formação, com foco em back-end, automação de processos, integração de sistemas e tratamento de dados."
+  },
+  "header": {
+    "role": "Desenvolvedor"
+  },
+  "cube": {
+    "aria": "Cubo 3D interativo. Arraste ou use as setas do teclado para girar. Clique em uma face para abrir uma área.",
+    "drag": "Arraste para explorar",
+    "swipe": "Deslize para explorar"
+  },
+  "faces": {
+    "projects": {
+      "label": "PROJETOS",
+      "hint": "Explore meus trabalhos"
+    },
+    "tech": {
+      "label": "TECNOLOGIAS",
+      "hint": "Ferramentas que uso"
+    },
+    "experience": {
+      "label": "EXPERIÊNCIA",
+      "hint": "Trajetória profissional"
+    },
+    "about": {
+      "label": "SOBRE",
+      "hint": "Quem sou eu"
+    },
+    "playground": {
+      "label": "PLAYGROUND",
+      "hint": "Terminal interativo"
+    },
+    "contact": {
+      "label": "CONTATO",
+      "hint": "Vamos conversar"
+    }
+  },
+  "apps": {
+    "projects": "Projetos",
+    "tech": "Tecnologias",
+    "experience": "Experiência",
+    "about": "Sobre",
+    "terminal": "Terminal",
+    "contact": "Contato"
+  },
+  "window": {
+    "minimize": "Minimizar",
+    "restore": "Restaurar",
+    "close": "Fechar"
+  },
+  "taskbar": {
+    "label": "Barra de tarefas",
+    "start": "Abrir central de comandos",
+    "language": "Idioma",
+    "open": "Abrir {app}",
+    "openWindow": "{app} (janela aberta)"
+  },
+  "common": {
+    "loading": "Carregando…",
+    "retry": "Tentar novamente",
+    "viewRepo": "Ver no GitHub",
+    "newTab": "abre em nova aba",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "download": "Baixar",
+    "back": "Voltar"
+  },
+  "about": {
+    "title": "Sobre",
+    "p1": "Desenvolvedor de software em formação, com foco em back-end, automação de processos, integração de sistemas e tratamento de dados.",
+    "p2": "Técnico em Automação Industrial pela ETEC Presidente Vargas e aluno de Tecnologia em Ciência de Dados na Universidade Cruzeiro do Sul, desde 2026.",
+    "p3": "Busco evoluir constantemente por meio de projetos, estudos e novos desafios na área de TI."
+  },
+  "experience": {
+    "title": "Experiência",
+    "current": {
+      "role": "Jovem Aprendiz — Aprendiz de Controle de Processos",
+      "area": "Controle de Produção / Automação de Processos Industriais",
+      "period": "2025–2026"
+    },
+    "deliverables": "Entregas",
+    "deliverableFlow": "FLOW: seis automações em Python, descritas em Projetos.",
+    "education": "Formação",
+    "etec": "Técnico em Automação Industrial",
+    "cruzeiro": "Tecnólogo em Ciência de Dados",
+    "cruzeiroNote": "Início em 2026",
+    "resume": "Currículo",
+    "resumeHint": "PDF para leitura, impressão e compartilhamento.",
+    "resumePt": "Currículo (PDF) — Português",
+    "resumeEn": "Currículo (PDF) — Inglês"
+  },
+  "projects": {
+    "title": "Projetos",
+    "tabsLabel": "Projetos e repositórios",
+    "kinds": {
+      "professional": "Profissional",
+      "learning": "Aprendizagem",
+      "personal": "Pessoal",
+      "fork": "Fork de terceiros"
+    },
+    "labels": {
+      "overview": "Visão geral",
+      "technologies": "Tecnologias",
+      "modules": "Módulos",
+      "application": "Aplicação",
+      "result": "Resultado observado (aprox.)",
+      "notes": "Observações",
+      "repo": "Repositório",
+      "original": "Projeto original",
+      "parallel": "Processamento paralelo"
+    },
+    "flow": {
+      "tagline": "Python Automation Process",
+      "summary": "Seis automações em Python desenvolvidas durante a experiência na Suzano (2025–2026), focadas em reduzir tarefas manuais, integrar sistemas e facilitar a análise de dados operacionais.",
+      "notice": "Código adaptado, sem os acessos e dados corporativos originais. Não é uma demonstração independente do ambiente SAP/SSRS. Requer Windows e Python 3.",
+      "resultsNote": "Resultados aproximados dos processos originais, conforme o README do repositório.",
+      "modules": {
+        "pgr": {
+          "application": "Lançamento e atualização de indicadores industriais na web.",
+          "result": "~2 min 30 s → ~15 s"
+        },
+        "sap": {
+          "application": "Extração e consolidação de relatórios SAP, com integração ao SAP GUI e tratamento de dados.",
+          "result": "~1 h 30 → menos de 15 min"
+        },
+        "lot": {
+          "application": "Auditoria e rastreabilidade de lotes, integrando informações de relatórios SSRS e SAP.",
+          "result": "até ~1 h → menos de 10 min"
+        },
+        "prod": {
+          "application": "Atualização e processamento de controles e relatórios de produção em Excel.",
+          "result": "~10 min → ~2 min (cerca de 80% menos)"
+        },
+        "visconf": {
+          "application": "Planejamento de insumos e estruturas de materiais (BOM), com foco em visibilidade e gestão.",
+          "result": "~40 min → ~2 min",
+          "note1": "Desenvolvido em colaboração com João.",
+          "note2": "5º lugar no Summit PRO+ da unidade Suzano Mogi."
+        },
+        "techlyst": {
+          "application": "Extração e tratamento de estruturas técnicas de materiais (BOM), com integração ao SAP GUI e Excel.",
+          "result": "mais de 180 materiais por hora",
+          "note1": "Utilizada em diferentes unidades industriais."
+        }
+      }
+    },
+    "pythonCourse": {
+      "tagline": "Estudos e evolução em Python",
+      "summary": "Exercícios, exemplos e desafios de um curso introdutório de Python. Material de aprendizagem, não um produto profissional finalizado."
+    },
+    "pip": {
+      "tagline": "Extensão de navegador (Chromium)",
+      "summary": "Extensão que coloca qualquer elemento da página em uma janela nativa de Picture-in-Picture.",
+      "credit": "Este repositório é um fork do projeto de boryssey. A autoria original é dele; a contribuição individual neste fork ainda não foi confirmada."
+    }
+  },
+  "tech": {
+    "title": "Tecnologias",
+    "intro": "Organizadas por categoria. Sem barras de domínio: o contexto de uso importa mais que um número.",
+    "categories": {
+      "development": "Desenvolvimento",
+      "automation": "Automação",
+      "data": "Dados",
+      "tools": "Ferramentas"
+    },
+    "usedIn": "Usado em",
+    "professionalBadge": "Uso profissional",
+    "legend": "Marcadas com “Uso profissional”: tecnologias documentadas no projeto FLOW.",
+    "selectHint": "Selecione uma tecnologia para ver o contexto."
+  },
+  "contact": {
+    "title": "Contato",
+    "intro": "O caminho mais direto é por e-mail ou LinkedIn.",
+    "email": "E-mail",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "copyEmail": "Copiar e-mail"
+  },
+  "github": {
+    "title": "Repositórios públicos no GitHub",
+    "loading": "Buscando repositórios…",
+    "none": "Nenhum repositório público encontrado.",
+    "errors": {
+      "rate_limited": "O limite de requisições do GitHub foi atingido.",
+      "network": "Não foi possível conectar ao GitHub.",
+      "upstream": "O GitHub respondeu com erro."
+    },
+    "fallback": "Exibindo a lista local de projetos, sem dados em tempo real.",
+    "stale": "Exibindo dados salvos de {when}.",
+    "updated": "Atualizado em {date}",
+    "language": "Linguagem",
+    "fork": "fork",
+    "updatedLabel": "Última atualização"
+  },
+  "terminal": {
+    "title": "Terminal",
+    "welcome": "THE CUBE · terminal do portfólio. Digite “help” para ver os comandos.",
+    "hint": "Tab completa · ↑↓ histórico · Ctrl+L limpa",
+    "inputLabel": "Entrada de comando do terminal",
+    "unknown": "comando não reconhecido: {cmd}. Digite “help”.",
+    "noSuchApp": "área desconhecida: {app}",
+    "usageOpen": "uso: open <projects|tech|experience|about|terminal|contact>",
+    "opening": "abrindo {app}…",
+    "usageLang": "uso: lang <pt-BR|en>",
+    "langChanged": "idioma alterado para {language}",
+    "helpHeader": "Comandos disponíveis:",
+    "helpShortcuts": "Atalhos: Ctrl/⌘+K central de comandos · Ctrl/Alt+1–4 projetos, tecnologias, experiência, terminal · Esc fecha a janela ativa",
+    "cmd": {
+      "help": "lista os comandos",
+      "about": "quem sou eu",
+      "projects": "lista os projetos",
+      "skills": "tecnologias por categoria",
+      "experience": "experiência profissional",
+      "education": "formação",
+      "contact": "formas de contato",
+      "github": "perfil e repositório do FLOW",
+      "clear": "limpa a tela",
+      "date": "data e hora atuais",
+      "whoami": "identifica o portfólio",
+      "open": "abre uma área (ex.: open projects)",
+      "lang": "troca o idioma (ex.: lang en)"
+    },
+    "noWindowed": "(nenhuma)"
+  },
+  "palette": {
+    "label": "Central de comandos",
+    "placeholder": "Digite um comando ou busque uma área…",
+    "empty": "Nada encontrado.",
+    "hints": "↑↓ navegar · Enter selecionar · Esc fechar",
+    "groups": {
+      "apps": "Áreas",
+      "actions": "Ações",
+      "language": "Idioma"
+    },
+    "openApp": "Abrir {app}",
+    "resume": "Baixar currículo (PDF)",
+    "resumeKeywords": "cv curriculo resume pdf download",
+    "repo": "Abrir repositório do FLOW no GitHub",
+    "profile": "Abrir perfil no GitHub",
+    "switchTo": "Idioma: {language}",
+    "languageKeywords": "idioma language lingua"
+  },
+  "language": {
+    "pt-BR": "Português (Brasil)",
+    "en": "English"
+  }
+}

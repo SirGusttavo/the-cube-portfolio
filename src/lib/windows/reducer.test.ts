@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   defaultPosition,
   initialWindowsState,
+  windowLayout,
   windowsReducer,
   type WindowsAction,
   type WindowsState,
@@ -142,5 +143,54 @@ describe("windowsReducer", () => {
     expect(defaultPosition(desktop, 0).x).toBeGreaterThan(defaultPosition(desktop, 2).x);
     expect(defaultPosition(phone, 3)).toEqual({ x: 0, y: 0 });
     expect(defaultPosition({ width: 800, height: 600 }, 0).x).toBeGreaterThanOrEqual(16);
+  });
+});
+
+describe("windowLayout (ordem de renderização estável)", () => {
+  const ids = (s: WindowsState) => windowLayout(s).map((w) => w.id);
+  const opened = run([
+    { type: "open", id: "terminal", viewport: desktop },
+    { type: "open", id: "projects", viewport: desktop },
+    { type: "open", id: "tech", viewport: desktop },
+  ]);
+
+  it("renderiza na ordem fixa de APP_IDS, não na ordem de abertura", () => {
+    expect(opened.order).toEqual(["terminal", "projects", "tech"]); // empilhamento
+    expect(ids(opened)).toEqual(["projects", "tech", "terminal"]); // renderização
+  });
+
+  it("trazer uma janela para a frente NÃO reordena a renderização (só o z-index)", () => {
+    const before = ids(opened);
+    for (const id of ["terminal", "projects", "tech", "terminal"] as const) {
+      const next = windowsReducer(opened, { type: "focus", id });
+      expect(ids(next)).toEqual(before);
+      const top = windowLayout(next).find((w) => w.id === id)!;
+      expect(top.zIndex).toBe(Math.max(...windowLayout(next).map((w) => w.zIndex)));
+    }
+  });
+
+  it("minimizar e restaurar também não reordenam a renderização", () => {
+    const next = run(
+      [
+        { type: "minimize", id: "projects" },
+        { type: "restore", id: "projects" },
+        { type: "open", id: "terminal", viewport: desktop },
+      ],
+      opened,
+    );
+    expect(ids(next)).toEqual(ids(opened));
+  });
+
+  it("o z-index segue exatamente a ordem de empilhamento (único por janela)", () => {
+    const layout = windowLayout(opened);
+    const byZ = [...layout].sort((a, b) => a.zIndex - b.zIndex).map((w) => w.id);
+    expect(byZ).toEqual(opened.order);
+    expect(new Set(layout.map((w) => w.zIndex)).size).toBe(layout.length);
+  });
+
+  it("janelas fechadas somem do layout e as demais mantêm a posição relativa", () => {
+    const next = run([{ type: "close", id: "projects" }], opened);
+    expect(ids(next)).toEqual(["tech", "terminal"]);
+    expect(windowLayout(initialWindowsState)).toEqual([]);
   });
 });

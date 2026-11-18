@@ -2,18 +2,20 @@
 
 import { useI18n } from "@/i18n/I18nProvider";
 import { useWindows } from "@/contexts/WindowManager";
+import { windowLayout } from "@/lib/windows/reducer";
 import { APPS } from "./apps";
 import { WindowFrame } from "./WindowFrame";
 
-/** Janelas ficam montadas enquanto abertas (mesmo minimizadas) para preservar o estado. */
+/**
+ * Janelas ficam montadas enquanto abertas (mesmo minimizadas) para preservar o estado.
+ * A ordem de renderização é estável; o empilhamento é só por z-index (ver `windowLayout`).
+ */
 export function WindowLayer() {
   const { t } = useI18n();
   const { state } = useWindows();
   return (
     <>
-      {state.order.map((id, index) => {
-        const win = state.windows[id];
-        if (!win) return null;
+      {windowLayout(state).map(({ id, win, zIndex }) => {
         const { icon, Content } = APPS[id];
         return (
           <WindowFrame
@@ -22,7 +24,7 @@ export function WindowLayer() {
             title={t(`apps.${id}`)}
             icon={icon}
             win={win}
-            zIndex={20 + index}
+            zIndex={zIndex}
             focused={state.focused === id}
           >
             <Content />

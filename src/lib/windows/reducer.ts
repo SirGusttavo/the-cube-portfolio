@@ -171,3 +171,24 @@ export function windowsReducer(state: WindowsState, action: WindowsAction): Wind
     }
   }
 }
+
+/**
+ * Janelas abertas na ordem ESTÁVEL de renderização (a de APP_IDS), cada uma com
+ * o z-index calculado a partir de `order`.
+ *
+ * Por que não renderizar em `order`: trazer uma janela para a frente reordenaria
+ * os filhos no React, que MOVE o nó no DOM (remove e reinsere). Isso liberava a
+ * captura de ponteiro no meio do `pointerdown`: o 1º arraste de qualquer janela
+ * que não estava no topo falhava. Com ordem estável, focar só muda z-index
+ * (verificado no navegador: sem mutação de DOM, scroll interno preservado e a
+ * animação de entrada não se repete).
+ */
+export function windowLayout(
+  state: WindowsState,
+  baseZIndex = 20,
+): Array<{ id: AppId; win: WinState; zIndex: number }> {
+  return APP_IDS.flatMap((id) => {
+    const win = state.windows[id];
+    return win ? [{ id, win, zIndex: baseZIndex + state.order.indexOf(id) }] : [];
+  });
+}
